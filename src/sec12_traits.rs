@@ -21,9 +21,7 @@ trait Description {
 }
 
 impl Description for Satellite {
-    // fn describe(&self) -> String {
-    //     format!("{} is flying at {} miles per sec", &self.name, &self.velocity)
-    // }
+
 }
 
 impl Description for SpaceStation {
