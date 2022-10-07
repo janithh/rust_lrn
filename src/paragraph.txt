@@ -1,0 +1,4 @@
+This is Janith
+Writing a sample Rust
+	 Trying to dump to a file
+Thank you !!!
