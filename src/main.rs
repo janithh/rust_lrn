@@ -3,7 +3,7 @@
 
 use std::env;
 
-mod sec2_prim_data_types;
+//mod sec2_prim_data_types;
 //mod sec3_compound_data_types;
 //mod sec4_functions;
 //mod sec5_flow_control;
@@ -14,6 +14,7 @@ mod sec2_prim_data_types;
 //mod sec10_structs;
 //mod sec11_generic_types;
 //mod sec12_traits;
+mod sec13_lifetimes;
 
 /*
  * Main
@@ -23,7 +24,7 @@ fn main() {
      * Section 2 
      */
     //sec2_prim_data_types::study_fn();
-    sec2_prim_data_types::average();
+    //sec2_prim_data_types::average();
 
     /*
      * Section 3 
@@ -96,5 +97,10 @@ fn main() {
     //sec12_traits::study_fn();
     //println!("[Main] {}", sec12_traits::display_object());
     //println!("[Main] Compare results - {}", sec12_traits::compare_objects());
+
+    /*
+     * Section 13
+     */
+    sec13_lifetimes::study_fn();
 }
 

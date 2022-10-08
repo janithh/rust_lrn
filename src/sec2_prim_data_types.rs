@@ -38,16 +38,16 @@ pub fn study_fn() -> bool {
  * Exercise
  */ 
 pub fn average() {
-    // let a = 13;
-    // let b = 2.3;
-    // let c: f32 = 120.0;
+    let a = 13;
+    let b = 2.3;
+    let c: f32 = 120.0;
 
 
-    // //let average = (f64::from(a) + f64::from(b) + f64::from(c)) / 3.0; /*** My answer ***/
-    // let average = (a as f64 + b as f64  + c as f64) / 3.0; 
+    //let average = (f64::from(a) + f64::from(b) + f64::from(c)) / 3.0; /*** My answer ***/
+    let average = (a as f64 + b as f64  + c as f64) / 3.0; 
  
-    // println!("[sec2_prim_data_types::average] Average: {}", average);
+    println!("[sec2_prim_data_types::average] Average: {}", average);
 
-    // assert_eq!(average, 45.1);
-    // println!("[sec2_prim_data_types::average] Test Passed ! ");
+    assert_eq!(average, 45.1);
+    println!("[sec2_prim_data_types::average] Test Passed ! ");
 }
