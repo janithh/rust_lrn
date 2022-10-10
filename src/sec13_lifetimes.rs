@@ -61,5 +61,7 @@ pub fn study_fn() {
     let message = "Greetings from Hubble !!!";
 
     let sender = hubble.send_transmission(message);
-    println!("[sec13_lifetimes::study_fn] Sender - {sender}");    
+    println!("[sec13_lifetimes::study_fn] Sender - {sender}");
+
+    //static lifetime
 }
