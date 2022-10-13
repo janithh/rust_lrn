@@ -16,7 +16,8 @@ use std::env;
 //mod sec12_traits;
 //mod sec13_lifetimes;
 //mod sec14_enums;
-mod sec15_error_handling;
+//mod sec15_error_handling;
+mod sec16_collections;
 
 /*
  * Main
@@ -115,6 +116,19 @@ fn main() {
      * Section 15
      */
     //sec15_error_handling::study_fn();
-    sec15_error_handling::guess_number();
+    //sec15_error_handling::guess_number();
+
+    /*
+     * Section 16
+     */
+    //sec16_collections::study_fn();
+    let arguments_expected = 2;
+    let arguments_num = env::args().len();
+
+    assert_eq!(arguments_expected, arguments_num, "[Main] Invalid arguments : Expected - {arguments_expected}, Received - {arguments_num}");
+
+    let file_path = env::args().nth(1).unwrap();
+    sec16_collections::count_words(&file_path);
+
 }
 
