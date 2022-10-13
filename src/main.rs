@@ -15,7 +15,8 @@ use std::env;
 //mod sec11_generic_types;
 //mod sec12_traits;
 //mod sec13_lifetimes;
-mod sec14_enums;
+//mod sec14_enums;
+mod sec15_error_handling;
 
 /*
  * Main
@@ -108,6 +109,12 @@ fn main() {
      * Section 14
      */
     //sec14_enums::study_fn();
-    sec14_enums::get_location();
+    //sec14_enums::get_location();
+
+    /*
+     * Section 15
+     */
+    //sec15_error_handling::study_fn();
+    sec15_error_handling::guess_number();
 }
 
