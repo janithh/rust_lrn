@@ -1,4 +1,4 @@
-# rust_lrn Project
+# Project Introduction
 
 This project is the test code which I developed while studying Rust
 
