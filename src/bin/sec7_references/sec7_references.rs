@@ -82,9 +82,9 @@ pub mod test {
     } 
 }
 
-/*
+/***********
  * Exercise
- */
+ ***********/
 pub mod exercise {
     pub fn trim_spaces(data: &str) -> &str {
         let data_byte = data.as_bytes();
@@ -114,5 +114,77 @@ pub mod exercise {
         };
 
         &data[first_index..last_index + 1]
+    }
+}
+
+
+/**************
+ * Unit tests
+ ***************/
+#[cfg(test)]
+mod tests {
+    use super::exercise;
+     
+    #[test]
+    fn unittest_trim_spaces_normal() {
+
+        let phrase = "This is test";
+        let ret_phrase = exercise::trim_spaces(phrase);
+         
+        assert_eq!(ret_phrase, "This is test");
+    }
+
+    #[test]
+    fn unittest_trim_spaces_single_char() {
+
+        let phrase = "T";
+        let ret_phrase = exercise::trim_spaces(phrase);
+         
+        assert_eq!(ret_phrase, "T");
+    }
+
+    #[test]
+    fn unittest_trim_spaces_spaces_begin() {
+
+        let phrase = "    This is test";
+        let ret_phrase = exercise::trim_spaces(phrase);
+         
+        assert_eq!(ret_phrase, "This is test");
+    }
+
+    #[test]
+    fn unittest_trim_spaces_spaces_end() {
+
+        let phrase = "This is test    ";
+        let ret_phrase = exercise::trim_spaces(phrase);
+         
+        assert_eq!(ret_phrase, "This is test");
+    }
+
+    #[test]
+    fn unittest_trim_spaces_spaces_start_end() {
+
+        let phrase = "     This is test    ";
+        let ret_phrase = exercise::trim_spaces(phrase);
+         
+        assert_eq!(ret_phrase, "This is test");
+    }
+
+    #[test]
+    fn unittest_trim_spaces_spaces_only() {
+
+        let phrase = "        ";
+        let ret_phrase = exercise::trim_spaces(phrase);
+         
+        assert_eq!(ret_phrase, "");
+    }
+
+    #[test]
+    fn unittest_trim_spaces_empty() {
+
+        let phrase = "";
+        let ret_phrase = exercise::trim_spaces(phrase);
+         
+        assert_eq!(ret_phrase, "");
     }
 }

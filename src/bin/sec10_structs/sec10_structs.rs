@@ -48,6 +48,8 @@ pub mod test {
     /*
      * Rectangle structure
      */
+    #[derive(Debug)]
+    #[derive(Clone)]
     pub struct Rectangle {
         width: f64,
         height: f64
@@ -129,10 +131,67 @@ pub mod test {
  pub mod exercise {
     use super::test::Rectangle;
 
-    pub fn test_rectangle() {
-        let mut rectangle = Rectangle::new(10.2, 11.2);
-        println!("[sec10_structs::exercise::test_rectangle] Area : {}", rectangle.get_area());
-        rectangle.scale(5.1);
-        println!("[sec10_structs::exercise::test_rectangle] Area : {}", rectangle.get_area());
+    pub fn scaled_area(rect: &Rectangle, scale: f64) -> f64 {
+        let mut rec_local = (*rect).clone();
+        rec_local.scale(scale);
+        rec_local.get_area()
+    }
+}
+
+/**************
+ * Unit tests
+ ***************/
+#[cfg(test)]
+mod tests {
+    use super::exercise;
+    use super::test;
+      
+    #[test]
+    fn unittest_scaled_area_normal() {
+        let rectangle = test::Rectangle::new(2.0, 8.0);
+        let scale = 3.0;
+
+        let ret_area = exercise::scaled_area(&rectangle, scale);
+        assert_eq!(ret_area, 144.0);
+    }
+
+    #[test]
+    fn unittest_scaled_area_struct_no_change() {
+        let rectangle = test::Rectangle::new(2.0, 8.0);
+
+        let scale = 3.0;
+        let ret_area = exercise::scaled_area(&rectangle, scale);
+        assert_eq!(ret_area, 144.0);
+
+        let scale = 1.0;
+        let ret_area = exercise::scaled_area(&rectangle, scale);
+        assert_eq!(ret_area, 16.0);
+    }
+
+    #[test]
+    fn unittest_scaled_area_zero_width() {
+        let rectangle = test::Rectangle::new(0.0, 8.0);
+        let scale = 3.0;
+
+        let ret_area = exercise::scaled_area(&rectangle, scale);
+        assert_eq!(ret_area, 0.0);
+    }
+
+    #[test]
+    fn unittest_scaled_area_zero_height() {
+        let rectangle = test::Rectangle::new(2.0, 0.0);
+        let scale = 3.0;
+
+        let ret_area = exercise::scaled_area(&rectangle, scale);
+        assert_eq!(ret_area, 0.0);
+    }
+
+    #[test]
+    fn unittest_scaled_area_zero_scale() {
+        let rectangle = test::Rectangle::new(2.0, 8.0);
+        let scale = 0.0;
+
+        let ret_area = exercise::scaled_area(&rectangle, scale);
+        assert_eq!(ret_area, 0.0);
     }
 }

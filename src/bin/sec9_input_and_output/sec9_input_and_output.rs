@@ -52,3 +52,58 @@ pub mod test {
         return false;
     }
 }
+
+/**************
+ * Unit tests
+ ***************/
+#[cfg(test)]
+mod tests {
+    use super::exercise;
+     
+    #[test]
+    fn unittest_check_name_normal() {
+        let file_path = "./files/moonwalkers.txt";
+        let name = "Duke";
+        let fn_return = exercise::check_name(file_path, name);
+         
+        assert_eq!(fn_return, true);
+    }
+
+    #[test]
+    #[should_panic]
+    fn unittest_check_name_invalid_path() {
+        let file_path = "./src/moonwalkers.txt";
+        let name = "Duke";
+        let fn_return = exercise::check_name(file_path, name);
+         
+        assert_eq!(fn_return, false);
+    }
+
+    #[test]
+    #[should_panic]
+    fn unittest_check_name_empty_path() {
+        let file_path = "";
+        let name = "Duke";
+        let fn_return = exercise::check_name(file_path, name);
+         
+        assert_eq!(fn_return, false);
+    }
+
+    #[test]
+    fn unittest_check_name_not_found_name() {
+        let file_path = "./files/moonwalkers.txt";
+        let name = "Oliver";
+        let fn_return = exercise::check_name(file_path, name);
+         
+        assert_eq!(fn_return, false);
+    }
+
+    #[test]
+    fn unittest_check_name_empty_name() {
+        let file_path = "./files/moonwalkers.txt";
+        let name = "";
+        let fn_return = exercise::check_name(file_path, name);
+         
+        assert_eq!(fn_return, false);
+    }
+}

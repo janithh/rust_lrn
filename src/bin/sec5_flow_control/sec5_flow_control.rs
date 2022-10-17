@@ -115,8 +115,7 @@ pub mod test {
  * Exercise
  */
 pub mod exercise {
-    pub fn calculate_stats() {
-        let numbers = [1, 9, -2, 0, 23, 20, -7, 13, 37, 20, 56, -18, 20, 3];
+    pub fn calculate_stats(numbers: &[i32]) -> (i32, i32, f64) {
         let mut max: i32;
         let mut min: i32;
         let mut mean: f64;
@@ -124,7 +123,7 @@ pub mod exercise {
         let array_size = numbers.len();
 
         if array_size == 0 {
-            return;
+            return (0, 0, 0.0);
         }
 
         max = numbers[0];
@@ -132,22 +131,72 @@ pub mod exercise {
         mean = 0.0;
 
         for number_item in numbers {
-            if max < number_item {
-                max = number_item;
+            if max < *number_item {
+                max = *number_item;
             }
-            if min > number_item {
-                min = number_item;
+            if min > *number_item {
+                min = *number_item;
             }
 
-            mean += number_item as f64;
+            mean += *number_item as f64;
         }
 
         mean /= array_size as f64;
 
-        assert_eq!(max, 56);
-        assert_eq!(min, -18);
-        assert_eq!(mean, 12.5);
-
-        println!("Test passed !!!");
+        (min, max, mean)
     }
 }
+
+/**************
+ * Unit tests
+ ***************/
+#[cfg(test)]
+mod tests {
+    use super::exercise;
+     
+    #[test]
+    fn unittest_calculate_stats_normal() {
+
+        let array: [i32; 7] = [0, 1, 2, 2, 1, 7, 3];
+        let (min, max, mean) = exercise::calculate_stats(&array);
+         
+        assert_eq!(min, 0);
+        assert_eq!(max, 7);
+        assert_eq!(mean, 16.0/7.0);
+    }
+
+    #[test]
+    fn unittest_calculate_stats_zeros() {
+
+        let array: [i32; 5] = [0, 0, 0, 0, 0];
+        let (min, max, mean) = exercise::calculate_stats(&array);
+         
+        assert_eq!(min, 0);
+        assert_eq!(max, 0);
+        assert_eq!(mean, 0.0);
+    }
+
+    #[test]
+    fn unittest_calculate_stats_single() {
+
+        let array: [i32; 1] = [5];
+        let (min, max, mean) = exercise::calculate_stats(&array);
+         
+        assert_eq!(min, 5);
+        assert_eq!(max, 5);
+        assert_eq!(mean, 5.0);
+    }
+
+    #[test]
+    fn unittest_calculate_stats_empty() {
+
+        let array: [i32; 0] = [];
+        let (min, max, mean) = exercise::calculate_stats(&array);
+         
+        assert_eq!(min, 0);
+        assert_eq!(max, 0);
+        assert_eq!(mean, 0.0);
+    }
+}
+
+ 

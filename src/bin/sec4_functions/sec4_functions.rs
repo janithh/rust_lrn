@@ -15,9 +15,25 @@ pub mod test {
 }
 /**************
  * Exercise
- */
+ **************/
 pub mod exercise { 
     pub fn celcius_to_fahrenheit(celsius: f64) -> f64 {
         (1.8 * celsius) + 32.0
+    }
+}
+
+/**************
+ * Unit tests
+ ***************/
+#[cfg(test)]
+mod tests {
+    use super::exercise;
+
+    #[test]
+    fn unittest_celcius_to_fahrenheit() {
+        let fn_return = exercise::celcius_to_fahrenheit(37.0);
+        let fahrenheit_val: f64 = (1.8 * 37.0) + 32.0;
+
+        assert_eq!(fn_return, fahrenheit_val);
     }
 }

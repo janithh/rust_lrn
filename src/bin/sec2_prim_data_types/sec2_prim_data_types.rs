@@ -36,22 +36,27 @@ pub mod test {
     }
 }
 
-    /**************
-    * Exercise
-    ***************/
+/**************
+ * Exercise
+ ***************/
 pub mod exercise {
-    pub fn average() {
-        let a = 13;
-        let b = 2.3;
-        let c: f32 = 120.0;
+    pub fn average(a: f32, b:f32, c:f32) -> f32 {
+        (a + b + c) / 3.0
+    }
+}
 
-
-        //let average = (f64::from(a) + f64::from(b) + f64::from(c)) / 3.0; /*** My answer ***/
-        let average = (a as f64 + b as f64  + c as f64) / 3.0; 
+/**************
+ * Unit tests
+ ***************/
+#[cfg(test)]
+mod tests {
+    use super::exercise;
     
-        println!("[sec2_prim_data_types::average] Average: {}", average);
-
-        assert_eq!(average, 45.1);
-        println!("[sec2_prim_data_types::average] Test Passed ! ");
+    #[test]
+    fn unittest_average() {
+        let fn_return = exercise::average(2.51, 7.5, 15.23);
+        let average: f32 = (2.51 + 7.5 + 15.23)/3.0;
+        
+        assert_eq!(fn_return, average);
     }
 }
