@@ -1,5 +1,5 @@
 pub mod test {
-    use std::mem;
+    use std::{mem, fmt};
 
     /*
      * Rectangle struct
@@ -29,6 +29,12 @@ pub mod test {
         name: String,
         crew_size: u8,
         propellent: f64
+    }
+
+    impl fmt::Display for Shuttle {
+        fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+            write!(f, "Shuttle : Name - {}, Crew Size - {}, Propellent - {}", &self.name, &self.crew_size, &self.propellent)
+        }
     }
 
     pub fn study_fn() {
