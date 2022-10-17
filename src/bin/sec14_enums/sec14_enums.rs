@@ -23,11 +23,11 @@ pub mod test {
     pub fn study_fn() {
         match_operator();
 
-        test_enum();
+        run_enum();
 
-        test_option_t_enum();
+        run_option_t_enum();
 
-        test_if_let_syntax()
+        run_if_let_syntax()
     }
 
     fn match_operator() {
@@ -45,7 +45,7 @@ pub mod test {
         println!("[sec14_enums::test::match_operator] My number string - {}", result);
     }
 
-    fn test_enum() {
+    fn run_enum() {
         //Define Enums
         let my_shape = Shape::Circle(2.34);
         println!("[sec14_enums::test::test_enum] My Shape - {:?}", my_shape);
@@ -62,7 +62,7 @@ pub mod test {
         println!("[sec14_enums::test::test_enum] Perimeter - {}", perimeter);  
     }
 
-    fn test_option_t_enum() {
+    fn run_option_t_enum() {
         //Option<T> enum
         let count_down =[5, 4, 3, 2, 1]; 
         let number = count_down.get(5);
@@ -78,7 +78,7 @@ pub mod test {
         println!("[sec14_enums::test::test_option_t_enum] Match Number - {}", number_match);  
     }
 
-    fn test_if_let_syntax() {
+    fn run_if_let_syntax() {
         //if-let syntax
         let number = Some(13);
         let test = 5;
