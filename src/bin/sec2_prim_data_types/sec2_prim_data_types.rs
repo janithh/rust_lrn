@@ -1,6 +1,6 @@
 
 pub mod test {
-    pub fn study_fn() -> bool {
+    pub fn study_fn() {
         let mut x: u32 = 10;
         let y: f64 = (22 as f64)/(7 as f64);
         let z = y as u8;
@@ -31,8 +31,6 @@ pub mod test {
         let number = '1';
         let finger = '\u{261D}';
         println!("[sec2_prim_data_types::study_fn] CHAR: {letter}, {number}, {finger}");
-
-        return true;
     }
 }
 
