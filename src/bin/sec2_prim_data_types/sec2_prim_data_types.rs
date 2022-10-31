@@ -1,4 +1,15 @@
 
+// trait FromEx {
+//     fn from<T: std::cmp::PartialOrd, U>(input: T) -> U; 
+// }
+
+// impl FromEx for u8 {
+//     fn from<u32: std::cmp::PartialOrd, u8>(input: u32) -> u8 {
+//         let max_u8: u32 = u32::from(127);
+//         if input > max_u8 {max_u8 as u8} else {input as u8}
+//     }
+// }
+
 pub mod test {
     pub fn study_fn() {
         let mut x: u32 = 10;
@@ -26,11 +37,13 @@ pub mod test {
         a = a >> 4;
         println!("[sec2_prim_data_types::study_fn] RIGHT_SHIFT: a is {a:08b}");
 
-
         let letter = 'a';
         let number = '1';
         let finger = '\u{261D}';
         println!("[sec2_prim_data_types::study_fn] CHAR: {letter}, {number}, {finger}");
+
+        // let x_u8 = u8::from(x);
+
     }
 }
 
