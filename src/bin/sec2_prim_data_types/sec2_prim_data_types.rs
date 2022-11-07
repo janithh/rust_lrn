@@ -1,10 +1,10 @@
 
-// trait FromEx {
-//     fn from<T: std::cmp::PartialOrd, U>(input: T) -> U; 
-// }
+trait FromEx {
+    fn from<T: std::cmp::PartialOrd, U>(input: T) -> U; 
+}
 
-// impl FromEx for u8 {
-//     fn from<u32: std::cmp::PartialOrd, u8>(input: u32) -> u8 {
+// impl FromEx for U8 {
+//     fn from<U32: std::cmp::PartialOrd, U8>(input: u32) -> u8 {
 //         let max_u8: u32 = u32::from(127);
 //         if input > max_u8 {max_u8 as u8} else {input as u8}
 //     }
