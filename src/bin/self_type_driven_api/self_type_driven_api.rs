@@ -1,7 +1,6 @@
 
 pub mod exercise {
-    use std::{time::Duration, thread::sleep, path::Iter};
-    use term::Terminal;
+    use std::{time::Duration, thread::sleep};
 
     struct Progress<Iter> {
         iter: Iter,
@@ -52,7 +51,10 @@ pub mod exercise {
   
         fn next(&mut self) -> Option<Self::Item> {
             let mut t = term::stdout().unwrap();
-            t.cursor_up();
+            match t.cursor_up() {
+                Ok(_) => (),
+                Err(_) => ()
+            }
 
             match self.bound {
                 Some(bound) => println!("{}{}{}{}", self.delim.0, "*".repeat(self.i), " ".repeat(bound - self.i), self.delim.1),
@@ -71,8 +73,6 @@ pub mod exercise {
     }
 
     pub fn study_fn() {
-        let x = 1.progress();
-        let y = "blah".progress();
         let v: Vec<i32> = vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
         let delimiters = ('<', '>');
         println!("");

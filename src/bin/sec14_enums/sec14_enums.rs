@@ -47,7 +47,10 @@ pub mod test {
 
     fn run_enum() {
         //Define Enums
-        let my_shape = Shape::Circle(2.34);
+        let shape_cir = Shape::Circle(2.34);
+        let _share_rect = Shape::Rectangle(3.42, 7.75);
+        let _shape_tri = Shape::Triangle(4.25, 3.26, 8.24);
+        let my_shape = shape_cir;
         println!("[sec14_enums::test::test_enum] My Shape - {:?}", my_shape);
 
         //Match operator
